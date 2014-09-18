@@ -32,12 +32,15 @@ public class MainActivity extends Activity {
 	private ViewPager mTabPager;
 	private Button button1, button2;
 	
+	private List<String> allPhotosList = new ArrayList<String>();
 	private HashMap<String,List<String>> mGroupMap = new HashMap<String, List<String>>();
 	private List<ImageBean> list = new ArrayList<ImageBean>();
 	private final static int SCAN_OK = 1;
 	private ProgressDialog mProgressDialog;
-	private GroupAdapter adapter;
-	private GridView mGroupGridView;
+	private GroupAdapter adapter1;
+	private ChildAdapter adapter2;
+	private GridView photoAlbum_GridView;
+	private GridView allPhotos_GridView;
 	
 	private Handler mHandler = new Handler(){
 		public void handleMessage(Message msg){
@@ -46,9 +49,12 @@ public class MainActivity extends Activity {
 			case SCAN_OK:
 				mProgressDialog.dismiss();
 				
-				adapter = new GroupAdapter(MainActivity.this,
-						list = subGroupOfImage(mGroupMap),mGroupGridView);
-				mGroupGridView.setAdapter(adapter);
+				adapter1 = new GroupAdapter(MainActivity.this,
+						list = subGroupOfImage(mGroupMap),photoAlbum_GridView);
+				photoAlbum_GridView.setAdapter(adapter1);
+				
+				adapter2 = new ChildAdapter(MainActivity.this, allPhotosList, allPhotos_GridView);
+				allPhotos_GridView.setAdapter(adapter2);
 				break;
 			}
 		}
@@ -71,9 +77,10 @@ public class MainActivity extends Activity {
 		View view1 = mLi.inflate(R.layout.photo_album, null);
 		View view2 = mLi.inflate(R.layout.all_photos, null);
 		
-		mGroupGridView = (GridView)view1.findViewById(R.id.main_grid);
+		photoAlbum_GridView = (GridView)view1.findViewById(R.id.main_grid);
+		allPhotos_GridView = (GridView)view2.findViewById(R.id.all_photos_grid);
 		getImages();
-		mGroupGridView.setOnItemClickListener(new OnItemClickListener() {
+		photoAlbum_GridView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
@@ -86,6 +93,8 @@ public class MainActivity extends Activity {
 				
 			}
 		});
+		
+//		allPhotos_GridView.setOnItemClickListener(listener);
 		
 		final ArrayList<View> views = new ArrayList<View>();
 		views.add(view1);
@@ -156,6 +165,7 @@ public class MainActivity extends Activity {
 							.getName();
 
 					// 根据父路径名将图片放入mGroupMap中
+					allPhotosList.add(path);
 					if (!mGroupMap.containsKey(parentName)) {
 						List<String> childList = new ArrayList<String>();
 						childList.add(path);

@@ -8,8 +8,8 @@
     <RelativeLayout
         android:id="@+id/photo_album_up"
         android:layout_width="fill_parent"
-        android:layout_height="50dp"		
-        android:background="#808080">
+        android:layout_height="50dp"
+        android:background="#808080" >
 
         <Button
             android:id="@+id/add"
@@ -47,23 +47,23 @@
         android:id="@+id/photo_layout"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/photo_album_up"
         android:layout_alignParentBottom="true"
-        android:orientation="vertical">
-        
+        android:layout_below="@id/photo_album_up"
+        android:orientation="vertical" >
+
         <GridView
-        android:id="@+id/main_grid"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:cacheColorHint="@android:color/transparent"
-        android:columnWidth="90dip"
-        android:gravity="center"
-        android:horizontalSpacing="20dip"
-        android:listSelector="@android:color/transparent"
-        android:numColumns="2"
-        android:stretchMode="columnWidth"
-        android:verticalSpacing="20dip" >
-    </GridView>
+            android:id="@+id/main_grid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="@android:color/transparent"
+            android:columnWidth="90dip"
+            android:gravity="center"
+            android:horizontalSpacing="20dip"
+            android:listSelector="@android:color/transparent"
+            android:numColumns="2"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="20dip" >
+        </GridView>
     </LinearLayout>
 
 </RelativeLayout>

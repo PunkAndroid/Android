@@ -1,0 +1,7 @@
+package com.android.test.imageviewtest;
+
+import android.widget.ImageView;
+
+public class TouchImageView extends ImageView {
+
+}

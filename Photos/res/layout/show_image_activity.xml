@@ -19,5 +19,4 @@
         android:stretchMode="columnWidth"
         android:verticalSpacing="5dip" >
     </GridView>
-
-</RelativeLayout>
+</RelativeLayout>

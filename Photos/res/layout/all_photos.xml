@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#fffff0" >
@@ -8,8 +9,7 @@
         android:id="@+id/all_photos_up"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
-        android:background="#808080">
-
+        android:background="#808080" >
 
         <TextView
             android:layout_width="wrap_content"
@@ -21,16 +21,23 @@
             android:text="全部照片"
             android:textColor="#fffff0"
             android:textSize="18dp" />
-
     </RelativeLayout>
 
-    <LinearLayout
-        android:id="@+id/photo_layout"
-        android:layout_width="fill_parent"
+    <GridView
+        android:id="@+id/all_photos_grid"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
         android:layout_below="@id/all_photos_up"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical">
-    </LinearLayout>
+        android:cacheColorHint="@android:color/transparent"
+        android:columnWidth="90dip"
+        android:gravity="center"
+        android:horizontalSpacing="5dip"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="auto_fit"
+        android:padding="5dip"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="5dip" >
+    </GridView>
 
 </RelativeLayout>
