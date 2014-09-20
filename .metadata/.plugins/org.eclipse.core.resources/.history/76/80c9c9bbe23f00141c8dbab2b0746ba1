@@ -1,0 +1,15 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.android.test.imageviewtest.MainActivity$PlaceholderFragment" >
+
+    <com.android.test.imageviewtest.TouchImageView 
+        android:id = "@+id/img_id"
+        android:layout_width="400dip"
+        android:layout_height="800dip"
+        android:src="@drawable/koala"
+        android:scaleType="fitCenter"/>
+
+</LinearLayout>

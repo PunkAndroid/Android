@@ -9,11 +9,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.android.test.imageviewtest.MainActivity$PlaceholderFragment" >
 
-    <com.android.test.imageviewtest.TouchImageView 
-        android:id = "@+id/img_id"
+    <com.android.test.imageviewtest.TouchImageView
+        android:id="@+id/img_id"
         android:layout_width="400dip"
         android:layout_height="800dip"
-        android:src="@drawable/koala"
-        android:scaleType="fitCenter"/>
+        android:scaleType="fitCenter"
+        android:src="@drawable/koala" />
 
 </LinearLayout>
