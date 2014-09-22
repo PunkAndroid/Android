@@ -22,7 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.android.myApp.photos.ShowImageActivity"></activity>
+        <activity android:name="com.android.myApp.photos.ShowPhotoInAlbumActivity"></activity>
+        <activity android:name="com.android.myApp.photos.PhotoDetailsActivity"></activity>
     </application>
 
 </manifest>

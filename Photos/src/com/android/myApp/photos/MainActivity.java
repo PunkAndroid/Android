@@ -87,11 +87,24 @@ public class MainActivity extends Activity {
 					int position, long id) {
 				List<String> childList = mGroupMap.get(list.get(position).getFolderName());
 				
-				Intent mIntent = new Intent(MainActivity.this, ShowImageActivity.class);
+				Intent mIntent = new Intent(MainActivity.this, ShowPhotoInAlbumActivity.class);
 				mIntent.putStringArrayListExtra("data", (ArrayList<String>)childList);
 				startActivity(mIntent);
 				
 			}
+		});
+		allPhotos_GridView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				String photoPath = allPhotosList.get(position);
+				Intent mIntent = new Intent(MainActivity.this,PhotoDetailsActivity.class);
+				mIntent.putExtra("image_path", photoPath);
+				startActivity(mIntent);
+			}
+			
 		});
 		
 //		allPhotos_GridView.setOnItemClickListener(listener);
