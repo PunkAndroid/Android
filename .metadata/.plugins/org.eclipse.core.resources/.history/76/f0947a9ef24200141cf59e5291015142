@@ -1,0 +1,28 @@
+package com.misoo.ex01;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
+public class ex01 extends Activity {
+	public static final int ADD_ID = Menu.FIRST;
+	public static final int DELETE_ID = Menu.FIRST+1;
+	public static final int EXIT_ID = Menu.FIRST+2;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.m);
+	}
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// TODO Auto-generated method stub
+		return super.onCreateOptionsMenu(menu);
+	}
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		return super.onOptionsItemSelected(item);
+	}
+}

@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="app_name">gaohuantang36ji</string>
+	<string name="menu_add">Add Item</string>
+	<string name="menu_delete">Del Item</string>
+	<string name="menu_exit">Exit</string>
+</resources>
