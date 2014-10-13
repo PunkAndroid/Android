@@ -1,7 +1,0 @@
-package com.misoo.ex01;
-
-import android.app.Activity;
-
-public class ex01 extends Activity {
-
-}

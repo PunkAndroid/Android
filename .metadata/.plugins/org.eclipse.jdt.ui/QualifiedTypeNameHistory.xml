@@ -42,4 +42,14 @@
 <fullyQualifiedTypeName name="android.graphics.BitmapFactory"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
 <fullyQualifiedTypeName name="android.graphics.Bitmap"/>
+<fullyQualifiedTypeName name="android.widget.ListView"/>
+<fullyQualifiedTypeName name="android.widget.SimpleAdapter"/>
+<fullyQualifiedTypeName name="com.example.listviewdemo.R.layout"/>
+<fullyQualifiedTypeName name="com.example.listviewdemo.R.id"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.example.listviewdemo.MainActivity"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="com.example.listviewdemo.DataMap"/>
+<fullyQualifiedTypeName name="com.example.listviewdemo.R.dimen"/>
 </qualifiedTypeNameHistroy>
