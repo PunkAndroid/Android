@@ -1,0 +1,154 @@
+package com.example.opengltest1;
+
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.FloatBuffer;
+
+import javax.microedition.khronos.egl.EGLConfig;
+import javax.microedition.khronos.opengles.GL10;
+
+import android.app.Activity;
+import android.app.Fragment;
+import android.opengl.GLES30;
+import android.opengl.GLSurfaceView;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        if (savedInstanceState == null) {
+            getFragmentManager().beginTransaction()
+                    .add(R.id.container, new PlaceholderFragment())
+                    .commit();
+        }
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * A placeholder fragment containing a simple view.
+     */
+    public static class PlaceholderFragment extends Fragment {
+
+        public PlaceholderFragment() {
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                Bundle savedInstanceState) {
+ //           View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            GLSurfaceView mGLView = new GLSurfaceView(getActivity());
+            mGLView.setRenderer(new ClearRenderer());
+            
+            return mGLView;
+        }
+    }
+    public static class ClearRenderer implements GLSurfaceView.Renderer{
+   
+
+		@Override
+		public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+			// TODO Auto-generated method stub
+			gl.glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
+			
+			Triangle mTriangle = new Triangle();
+		}
+
+		@Override
+		public void onSurfaceChanged(GL10 gl, int width, int height) {
+			// TODO Auto-generated method stub
+			gl.glViewport(0, 0, width, height);
+		}
+
+		@Override
+		public void onDrawFrame(GL10 gl) {
+			// TODO Auto-generated method stub
+//			gl.glClear(GLES30.GL_COLOR_BUFFER_BIT|GLES30.GL_DEPTH_BUFFER_BIT);
+			gl.glClear(GLES30.GL_COLOR_BUFFER_BIT);
+		}
+		public static int loadShader(int type, String shaderCode){
+
+		    // 创建一个vertex shader类型(GLES20.GL_VERTEX_SHADER)
+		    // 或fragment shader类型(GLES20.GL_FRAGMENT_SHADER)
+		    int shader = GLES30.glCreateShader(type);
+
+		    // 将源码添加到shader并编译之
+		    GLES30.glShaderSource(shader, shaderCode);
+		    GLES30.glCompileShader(shader);
+
+		    return shader;
+		}
+		class Triangle{
+	    	private FloatBuffer vertexBuffer;
+	    	
+	     	private final String vertexShaderCode =
+	    		    "attribute vec4 vPosition;" +
+	    		    "void main() {" +
+	    		    "  gl_Position = vPosition;" +
+	    		    "}";
+
+	    		private final String fragmentShaderCode =
+	    		    "precision mediump float;" +
+	    		    "uniform vec4 vColor;" +
+	    		    "void main() {" +
+	    		    "  gl_FragColor = vColor;" +
+	    		    "}";
+	    	
+	    	//顶点坐标
+	    	static final int COORDS_PER_VERTEX = 3;
+	    	static float triangleCoords[] = {
+	    		0.0f,0.622008459f,0.0f, //top 
+	    	    -0.5f,-0.311004243f,0.0f,   // bottom left
+	    	    0.5f,-0.311004243f,0.0f    // bottom right
+	    		
+	    	};
+	    	//设置颜色，分别为red,green,blue和alpha(opacity)
+	    	float color[] = {0.63671875f, 0.76953125f, 0.22265625f, 1.0f };
+	    	
+	    	public Triangle(){
+	    		//为存放形状的坐标，初始化顶点字节缓冲
+	    		ByteBuffer bb = ByteBuffer.allocateDirect(triangleCoords.length*4);// (坐标数 * 4)float占四字节
+	    		//设用设备的本点字节序
+	    		bb.order(ByteOrder.nativeOrder());
+	    		
+	    		// 从ByteBuffer创建一个浮点缓冲
+	            vertexBuffer = bb.asFloatBuffer();
+	            // 把坐标们加入FloatBuffer中
+	            vertexBuffer.put(triangleCoords);
+	            // 设置buffer，从第一个坐标开始读
+	            vertexBuffer.position(0);
+	            
+	            int vertexShader = loadShader(GLES30.GL_VERTEX_SHADER, vertexShaderCode);
+	            int fragmentShader = loadShader(GLES30.GL_FRAGMENT_SHADER, fragmentShaderCode);
+	    	}
+	    }
+    }   
+}

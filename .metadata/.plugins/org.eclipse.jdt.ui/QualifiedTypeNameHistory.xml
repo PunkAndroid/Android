@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="android.graphics.PointF"/>
-<fullyQualifiedTypeName name="android.util.AttributeSet"/>
-<fullyQualifiedTypeName name="android.content.Context"/>
-<fullyQualifiedTypeName name="android.graphics.drawable.BitmapDrawable"/>
-<fullyQualifiedTypeName name="android.widget.ImageView.ScaleType"/>
-<fullyQualifiedTypeName name="android.util.MonthDisplayHelper"/>
-<fullyQualifiedTypeName name="android.view.MotionEvent"/>
-<fullyQualifiedTypeName name="java.security.Principal"/>
-<fullyQualifiedTypeName name="android.util.FloatMath"/>
-<fullyQualifiedTypeName name="android.util.DisplayMetrics"/>
-<fullyQualifiedTypeName name="com.android.test.imageviewtest.TouchImageView"/>
 <fullyQualifiedTypeName name="com.android.test.imageviewtest.R.id"/>
 <fullyQualifiedTypeName name="android.graphics.Matrix"/>
 <fullyQualifiedTypeName name="com.example.zoomimageviewdemo.ZoomImageView"/>
@@ -52,4 +41,23 @@
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="com.example.listviewdemo.DataMap"/>
 <fullyQualifiedTypeName name="com.example.listviewdemo.R.dimen"/>
+<fullyQualifiedTypeName name="android.os.HandlerThread"/>
+<fullyQualifiedTypeName name="android.os.Handler"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="android.os.Message"/>
+<fullyQualifiedTypeName name="android.os.Bundle"/>
+<fullyQualifiedTypeName name="com.example.opengltest1.MainActivity.Triangle"/>
+<fullyQualifiedTypeName name="com.example.opengltest1.MainActivity"/>
+<fullyQualifiedTypeName name="android.opengl.GLSurfaceView.Renderer"/>
+<fullyQualifiedTypeName name="android.opengl.GLES30"/>
+<fullyQualifiedTypeName name="android.opengl.GLU"/>
+<fullyQualifiedTypeName name="java.nio.ShortBuffer"/>
+<fullyQualifiedTypeName name="com.example.opengltest1.OpenGLRender"/>
+<fullyQualifiedTypeName name="com.example.opengltest1.FlatColorSquare"/>
+<fullyQualifiedTypeName name="com.example.opengltest1.SmoothColorSquare"/>
+<fullyQualifiedTypeName name="com.example.opengltest1.Square"/>
+<fullyQualifiedTypeName name="java.nio.FloatBuffer"/>
+<fullyQualifiedTypeName name="javax.microedition.khronos.opengles.GL10"/>
+<fullyQualifiedTypeName name="java.nio.ByteBuffer"/>
+<fullyQualifiedTypeName name="java.nio.ByteOrder"/>
 </qualifiedTypeNameHistroy>
