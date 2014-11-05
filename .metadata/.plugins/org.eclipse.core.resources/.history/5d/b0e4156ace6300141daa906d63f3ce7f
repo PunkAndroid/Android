@@ -1,0 +1,17 @@
+package com.example.opengltest1;
+
+public class Plane extends Mesh {
+	//平面，可有宽、高、深度
+	public Plane(){
+		this(1,1,1,1);
+	}
+	public Plane(float width,float height){
+		this(width,height,1,1);
+	}
+	public Plane(float width, float height, int widthSegments, int heightSegments) {
+		// 顶点数：(widthSegments + 1) * (heightSegments + 1) 每个顶点3个坐标点表示
+		int verticesNum = (widthSegments + 1) * (heightSegments + 1);
+		float[] vertices = new float[verticesNum * 3];
+		short[] indices = new short[verticesNum * 6];
+	}
+}

@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.android.test.imageviewtest.R.id"/>
-<fullyQualifiedTypeName name="android.graphics.Matrix"/>
-<fullyQualifiedTypeName name="com.example.zoomimageviewdemo.ZoomImageView"/>
-<fullyQualifiedTypeName name="com.example.zoomimageviewdemo.R.id"/>
 <fullyQualifiedTypeName name="com.example.zoomimageviewdemo.R.drawable"/>
 <fullyQualifiedTypeName name="android.view.Menu"/>
 <fullyQualifiedTypeName name="com.example.gaohuantang36ji.R"/>
@@ -60,4 +56,8 @@
 <fullyQualifiedTypeName name="javax.microedition.khronos.opengles.GL10"/>
 <fullyQualifiedTypeName name="java.nio.ByteBuffer"/>
 <fullyQualifiedTypeName name="java.nio.ByteOrder"/>
+<fullyQualifiedTypeName name="java.util.Vector"/>
+<fullyQualifiedTypeName name="com.example.opengltest1.Group"/>
+<fullyQualifiedTypeName name="java.lang.Character"/>
+<fullyQualifiedTypeName name="com.example.opengltest1.Cube"/>
 </qualifiedTypeNameHistroy>

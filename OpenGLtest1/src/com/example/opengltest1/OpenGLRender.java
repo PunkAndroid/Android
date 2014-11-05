@@ -4,16 +4,30 @@ package com.example.opengltest1;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
+import com.example.opengltest1.mesh.Cube;
+import com.example.opengltest1.mesh.Group;
+import com.example.opengltest1.mesh.Mesh;
+
 import android.opengl.GLSurfaceView.Renderer;
 import android.opengl.GLU;
 
 
 public class OpenGLRender implements Renderer{
-	   
+		private float angle ;
+	    private Mesh root;
 //	Square square = new Square();
 //	FlatColorSquare square = new FlatColorSquare();
-	private Square square = new SmoothColorSquare();
-	private float angle ;
+	public OpenGLRender() {
+		// TODO Auto-generated constructor stub
+		Group group = new Group();
+		Cube cube = new Cube(1, 1, 1);
+		cube.rx=45f;
+		cube.ry=45f;
+		cube.setColor(0.0f, 0.0f, 1.0f, 0.5f);
+		group.add(cube);
+		root = group;
+	}
+	
 	@Override
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 		// Set the background color to black ( rgba ).
@@ -28,6 +42,7 @@ public class OpenGLRender implements Renderer{
 		gl.glDepthFunc(GL10.GL_LEQUAL);
 		// Really nice perspective calculations.
 		gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_NICEST);
+		
 	}
 
 	@Override
@@ -50,30 +65,23 @@ public class OpenGLRender implements Renderer{
 	public void onDrawFrame(GL10 gl) {
 		// TODO Auto-generated method stub
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT|GL10.GL_DEPTH_BUFFER_BIT);
-//		gl.glClear(GLES30.GL_COLOR_BUFFER_BIT);
 		gl.glLoadIdentity();
-		gl.glTranslatef(0, 0, -10);
-		
+		gl.glTranslatef(0, 0, -10);		
 		gl.glPushMatrix();
-//		gl.glTranslatef(1.0f, 1.0f, 0.0f);
-//		gl.glRotatef(45f, 0.0f, 0.0f, 1.0f);
-//		gl.glTranslatef(-1.0f, -1.0f, 0.0f);
 		gl.glRotatef(angle , 0, 0, 1);
-		square.draw(gl);
-		gl.glPopMatrix();
-		
+		root.draw(gl);
+		gl.glPopMatrix();		
 		gl.glPushMatrix();
 		gl.glRotatef(-angle, 0, 0, 1);
 		gl.glTranslatef(2, 0, 0);
 		gl.glScalef(.5f, .5f, .5f);
-		square.draw(gl);
-		
+		root.draw(gl);		
 		gl.glPushMatrix();
 		gl.glRotatef(-angle,0, 0, 1);
 		gl.glTranslatef(2, 0, 0);
 		gl.glScalef(.5f, .5f, .5f);
 		gl.glRotatef(angle*10, 0, 0, 1);
-		square.draw(gl);
+		root.draw(gl);
 		gl.glPopMatrix();
 		gl.glPopMatrix();
 		angle ++;
